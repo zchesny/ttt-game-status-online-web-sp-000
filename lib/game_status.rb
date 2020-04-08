@@ -34,31 +34,15 @@ end
 # returns true if board has not been won and is full
 # returns false if board is won
 def draw?(board)
-  if !won?(board) && full?(board)
-    return true
-  elsif !won?(board) && !full?(board)
-    return false
-  else
-    return false
-  end
+  !won?(board) && full?(board)
 end
 
 def over?(board)
-  if won?(board) || draw?(board) || full?(board)
-    return true
-  else
-    return false
-  end
+  won?(board) || draw?(board) || full?(board)
 end
 
 def winner(board)
-  if !won?(board)
-    return nil
-  end
-  win_pos = won?(board)
-  if (win_pos.all?{|pos| board[pos] == "X"})
-    return "X"
-  else 
-    return "O"
+  if winning_combo = won?(board)
+    return board[winning_combo.first]
   end
 end
