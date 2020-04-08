@@ -42,13 +42,7 @@ def over?(board)
 end
 
 def winner(board)
-  if !won?(board)
-    return nil
-  end
-  win_pos = won?(board)
-  if (win_pos.all?{|pos| board[pos] == "X"})
-    return "X"
-  else
-    return "O"
+  if winning_combo = won?(board)
+    return board[winning_combo.first
   end
 end
