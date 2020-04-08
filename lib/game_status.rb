@@ -34,15 +34,11 @@ end
 # returns true if board has not been won and is full
 # returns false if board is won
 def draw?(board)
-  !won?(board) && full?(board)ß
+  !won?(board) && full?(board)
 end
 
 def over?(board)
   won?(board) || draw?(board) || full?(board)
-    return true
-  else
-    return false
-  end
 end
 
 def winner(board)
